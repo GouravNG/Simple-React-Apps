@@ -26,7 +26,7 @@ export let todoData = [
     },
 ]
 
-export const addtodoData=(desc)=>{
+export const addtodoData = (desc) => {
     todoData.push(
         {
             id: idGenerator(),
@@ -35,6 +35,3 @@ export const addtodoData=(desc)=>{
         }
     )
 }
-console.log(todoData)
-addtodoData("newTodo")
-console.log(todoData)
