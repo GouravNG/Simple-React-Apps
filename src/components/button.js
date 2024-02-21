@@ -1,7 +1,14 @@
-export const Button=({nameOfButton="Click Me"})=>{
-    return(
+import { addtodoData } from "../utils/todoData"
+export const Button = ({ nameOfButton = "Click Me" }) => {
+    return (
         <>
-        <button>{nameOfButton}</button>
+            <button onClick={() => {
+                addtodoData({
+                    id: 4,
+                    isChecked: false,
+                    desc: "Shopping list"
+                })
+            }}>{nameOfButton}</button>
         </>
     )
 }

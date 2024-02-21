@@ -6,7 +6,7 @@ import { Button } from "./components/button"
 const Todo=()=>{
     return(
         <>
-        <Heading headingName="Todo-Lists"/>
+        <Heading headingName="Todo-List"/>
         <div>
             <Bar placeHolderName="Add ur new todo here"/>
             <Button nameOfButton="Add Your Todo"/>

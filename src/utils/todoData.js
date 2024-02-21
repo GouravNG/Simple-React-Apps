@@ -15,6 +15,9 @@ export const todoData=[
         id:3,
         isChecked:false,
         desc:"Shopping list"
-
     }
 ]
+export const addtodoData=(Data)=>{
+    todoData.push(Data)
+    console.log(todoData.length)
+}
