@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { todoData } from "../utils/todoData";
 
+const EachLine = ({ id, desc, isChecked, type }) => {
+    let [check, setCheck] = useState(isChecked)
+    return (
+        <li key={id}>
+            {check ? <del>{desc}</del> : desc}
+            <button onClick={() => setCheck(!check)}>[{check ? "✔️" : " "}]</button>
+        </li>)
+}
+
 const TodoLists = ({ type }) => {
-    let [check,setCheck]=useState(true)
     return (
         <>
             {
                 todoData.filter((i) => (i.isChecked === type))
-                    .map((i) =>
-                        <li key={i.id}>
-                            {type ? <del>{i.desc}</del> : i.desc}
-                            <button onClick={()=>setCheck()}>[{i.isChecked ? "✔️" : " "}]</button>
-                        </li>)
+                    .map((i) => <EachLine id={i.id} desc={i.desc} isChecked={i.isChecked} type={type} />)
             }
         </>
     )

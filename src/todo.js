@@ -2,6 +2,7 @@ import { Heading } from "./components/heading"
 import { TodoList } from "./components/todoList"
 import { Bar } from "./components/bar"
 import { Button } from "./components/button"
+
 const Todo=()=>{
     return(
         <>
