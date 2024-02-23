@@ -5,18 +5,16 @@ import { updateContext } from "./context"
 import { useState } from "react"
 export const Todo = () => {
     const [stateTodoData, setStateTodoData] = useState(todoData)
-    const [checked,setChecked]=useState()
     return (
         <div style={{ backgroundColor: "yellow" }}>
             <hr />
             <Heading headingName="Todo-Lists" />
-            <updateContext.Provider value={{stateTodoData,setStateTodoData,checked,setChecked}}>
+            <updateContext.Provider value={{ stateTodoData, setStateTodoData}}>
                 <TextBox placeHolderName="add your next todo" />
                 <CustomButton buttonName="ADD" />
                 <TodoList />
                 <hr />
-                <TodoList />
-                <hr />
+                <button onClick={()=>{console.log(stateTodoData)}}>Test</button>
             </updateContext.Provider>
         </div>
 

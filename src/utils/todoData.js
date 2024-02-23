@@ -1,9 +1,9 @@
-export const idGenerator = () => {
+ export const idGenerator = () => {
     let id = new Date().getSeconds()
     id = Math.ceil(Math.random(id) * 1000)
     return (id)
 }
-export let todoData = [
+ export let todoData = [
     {
         id: idGenerator(),
         isCheched: false,
@@ -23,15 +23,10 @@ export let todoData = [
         id: idGenerator(),
         isCheched: false,
         desc: "Water can"
-    },
+    }
 ]
 
-export const addtodoData = (desc) => {
-    todoData.push(
-        {
-            id: idGenerator(),
-            isCheched: true,
-            desc: desc
-        }
-    )
+export const addTodo=(todo)=>{
+    const newTodoData = [...todoData, { id: idGenerator(), isCheched: false, desc: todo }];
+    return newTodoData;
 }

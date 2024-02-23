@@ -1,10 +1,43 @@
-const TodoLists = () => {
+import { useContext } from "react"
+import { updateContext } from "../context"
+import { todoData } from "../utils/todoData"
+
+const updateTodo = (j) => {
+    const updatedTodoData = todoData.map(todoItem => {
+        if (todoItem.id === j) {
+            // Return a new object with the updated isCheched value
+            return {
+                ...todoItem,
+                isCheched: !todoItem.isCheched
+            };
+        } else {
+            // For other items, return them as they are
+            return todoItem;
+        }
+    });
+
+    return updatedTodoData;
+}
+
+export const EachLine = ({ i }) => {
+    const { setStateTodoData } = useContext(updateContext)
     return (
         <>
-            <li>
-                <input type="checkbox" id="checkbox1" name="checkbox1" value="check1" />
-                <label htmlFor="checkbox1">Option 1</label>
+            <li key={i.id}>
+                <input type="checkbox" id={i.id} name={i.desc} onChange={() => { setStateTodoData(updateTodo(i.id)) }} />
+                {!i.isCheched ? <label htmlFor={i.id}>{i.desc}</label> : <del><label htmlFor={i.id}>{i.desc}</label></del>}
             </li>
+        </>
+    )
+}
+
+export const TodoLists = ({ Checked = false }) => {
+    const { stateTodoData } = useContext(updateContext)
+    return (
+        <>
+            {stateTodoData.filter((i) =>
+                i.isCheched === Checked
+            ).map((i) => <EachLine key={i.id} i={i} />)}
         </>
     )
 }
@@ -12,17 +45,13 @@ const TodoLists = () => {
 export const TodoList = () => {
     return (
         <>
-            <ul>
+            <ol>
                 <TodoLists />
-                <li>
-                    <input type="checkbox" id="checkbox2" name="checkbox2" value="check2" />
-                    <label htmlFor="checkbox2">Option 2</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="checkbox3" name="checkbox3" value="check3" />
-                    <label htmlFor="checkbox3">Option 3</label>
-                </li>
-            </ul>
+            </ol>
+            <hr />
+            <ol>
+                <TodoLists Checked={true} />
+            </ol>
         </>
     )
 }

@@ -1,3 +1,9 @@
+import { useContext } from "react"
+import { updateContext } from "../context"
+import { addTodo } from "../utils/todoData"
+
+let newTodo
+
 export const Heading=({headingName="DefaultName"})=>{
     return(
         <>
@@ -8,14 +14,15 @@ export const Heading=({headingName="DefaultName"})=>{
 export const TextBox=({placeHolderName="placeholder"})=>{
     return(
         <>
-        <input type="text" placeholder={placeHolderName}/>
+        <input type="text" placeholder={placeHolderName}onChange={(e)=>{newTodo=(e.target.value)}}/>
         </>
     )
 }
 export const CustomButton=({buttonName="Click me"})=>{
+    const {setStateTodoData} =useContext(updateContext)
     return(
         <>
-        <button>{buttonName}</button>
+        <button onClick={()=>{setStateTodoData(addTodo(newTodo))}}>{buttonName}</button>
         </>
     )
 }
