@@ -1,9 +1,8 @@
 import { useContext } from "react"
 import { updateContext } from "../context"
-import { todoData } from "../utils/todoData"
 
-const updateTodo = (j) => {
-    const updatedTodoData = todoData.map(todoItem => {
+const updateTodo = (j, stateTodoData) => {
+    const updatedTodoData = stateTodoData.map(todoItem => {
         if (todoItem.id === j) {
             // Return a new object with the updated isCheched value
             return {
@@ -20,11 +19,11 @@ const updateTodo = (j) => {
 }
 
 export const EachLine = ({ i }) => {
-    const { setStateTodoData } = useContext(updateContext)
+    const { setStateTodoData, stateTodoData } = useContext(updateContext)
     return (
         <>
             <li key={i.id}>
-                <input type="checkbox" id={i.id} name={i.desc} onChange={() => { setStateTodoData(updateTodo(i.id)) }} />
+                <input type="checkbox" id={i.id} name={i.desc} onChange={() => { setStateTodoData(updateTodo(i.id, stateTodoData)) }} />
                 {!i.isCheched ? <label htmlFor={i.id}>{i.desc}</label> : <del><label htmlFor={i.id}>{i.desc}</label></del>}
             </li>
         </>
