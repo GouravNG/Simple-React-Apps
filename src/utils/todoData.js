@@ -26,7 +26,7 @@
     }
 ]
 
-export const addTodo=(todo)=>{
-    const newTodoData = [...todoData, { id: idGenerator(), isCheched: false, desc: todo }];
+export const addTodo=(todo,stateTodoData)=>{
+    const newTodoData = [...stateTodoData, { id: idGenerator(), isCheched: false, desc: todo }];
     return newTodoData;
 }

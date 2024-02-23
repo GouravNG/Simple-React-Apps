@@ -4,25 +4,25 @@ import { addTodo } from "../utils/todoData"
 
 let newTodo
 
-export const Heading=({headingName="DefaultName"})=>{
-    return(
+export const Heading = ({ headingName = "DefaultName" }) => {
+    return (
         <>
             <h1>{headingName}</h1>
         </>
     )
 }
-export const TextBox=({placeHolderName="placeholder"})=>{
-    return(
+export const TextBox = ({ placeHolderName = "placeholder" }) => {
+    return (
         <>
-        <input type="text" placeholder={placeHolderName}onChange={(e)=>{newTodo=(e.target.value)}}/>
+            <input type="text" placeholder={placeHolderName} onChange={(e) => { newTodo = (e.target.value) }} />
         </>
     )
 }
-export const CustomButton=({buttonName="Click me"})=>{
-    const {setStateTodoData} =useContext(updateContext)
-    return(
+export const CustomButton = ({ buttonName = "Click me" }) => {
+    const { setStateTodoData, stateTodoData } = useContext(updateContext)
+    return (
         <>
-        <button onClick={()=>{setStateTodoData(addTodo(newTodo))}}>{buttonName}</button>
+            <button onClick={() => {setStateTodoData(addTodo(newTodo, stateTodoData))}}>{buttonName}</button>
         </>
     )
 }

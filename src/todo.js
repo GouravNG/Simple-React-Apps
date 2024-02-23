@@ -9,12 +9,11 @@ export const Todo = () => {
         <div style={{ backgroundColor: "yellow" }}>
             <hr />
             <Heading headingName="Todo-Lists" />
-            <updateContext.Provider value={{ stateTodoData, setStateTodoData}}>
+            <updateContext.Provider value={{ stateTodoData, setStateTodoData }}>
                 <TextBox placeHolderName="add your next todo" />
                 <CustomButton buttonName="ADD" />
                 <TodoList />
                 <hr />
-                <button onClick={()=>{console.log(stateTodoData)}}>Test</button>
             </updateContext.Provider>
         </div>
 
