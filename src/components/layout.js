@@ -7,8 +7,9 @@ const {setInput,setOutput,input}=useContext(displayContext)
 
 
     return (
-        button.map((button) =>
-            <div key={button} className="buttons" onClick={()=>{setInput([...input,button])}}>{button}</div>)
+        button.map((button,index) =>
+            index===3?<div key={button} className="buttons" onClick={()=>{setInput([...input,button]);console.log(index);}}>{button}</div>:<div key={button} className="buttons" onClick={()=>{setInput([...input,button]);console.log(index);}}>{button}</div>
+    )
     )
 }
 
