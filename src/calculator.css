@@ -12,10 +12,10 @@
     /* padding: .5em; */
     height: 20%;
 }
-.displayField>h2{
+.displayField>h1{
     text-align: right;
 }
-.displayField>h5{
+.displayField>h3{
     text-align: left;
 }
 .buttonPart{
@@ -35,4 +35,16 @@
     width: 20%;
     background-color: orange;
     display: flex;
+}
+.row:last-child>.buttons{
+    background-color: rgb(140, 0, 255);
+}
+.row:last-child>.buttons:first-child{
+    background-color: rgb(19, 190, 190);
+}
+.row:last-child>.buttons:last-child{
+    background-color: rgb(248, 18, 18);
+}
+.buttons:last-child{
+    background-color: rgb(248, 18, 18);
 }

@@ -1,10 +1,12 @@
+import { useContext } from "react"
+import { displayContext } from "../context"
 export const Display = () => {
-
+const{input,output}=useContext(displayContext)
     return (
         <>
             <div className="displayField">
-                <h5>1+1</h5>
-                <h2>2</h2>
+                <h3>{input}</h3>
+                <h1>{output}</h1>
             </div>
         </>
     )
