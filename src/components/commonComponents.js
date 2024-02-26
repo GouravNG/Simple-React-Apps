@@ -22,7 +22,24 @@ export const CustomButton = ({ buttonName = "Click me" }) => {
     const { setStateTodoData, stateTodoData } = useContext(updateContext)
     return (
         <>
-            <button onClick={() => {setStateTodoData(addTodo(newTodo, stateTodoData))}}>{buttonName}</button>
+            <button onClick={() => { setStateTodoData(addTodo(newTodo, stateTodoData)) }}>{buttonName}</button>
+        </>
+    )
+}
+
+export const InputField = ({ forName = "defaultName", labelName = "Your Input", typeName = "text", placeHolderName = "input here", }) => {
+    return (
+        <>
+            <label htmlFor={forName}>{labelName}</label>
+            <input type={typeName} id={forName} placeholder={placeHolderName} />
+        </>
+    )
+}
+
+export const NewCustomButton = ({ buttonName = "Click me", onClickFunctin = (() => { console.log("HI") }) }) => {
+    return (
+        <>
+            <button onClick={onClickFunctin} >{buttonName}</button>
         </>
     )
 }

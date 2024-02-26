@@ -1,25 +1,28 @@
+import { Heading, InputField, NewCustomButton } from "../components/commonComponents"
+import { Banner } from "../components/banner."
+import { Navigation } from "../components/navigation"
 export const HomePage = () => {
     return (
         <div className="countrywebApp">
             <div className="headingBar">
                 <div className="topBar">
-                    <div className="heading"><h1>PROJECT | COUTRIES DATA</h1></div>
+                    <div className="heading">
+                        <Heading headingName="PROJECT | Countries Data" />
+                    </div>
                     <div className="theme">
-                        <label for='searchField'><span>🔍</span>Search</label>
-                        <input type="text" id="searchField" placeholder="ex: india" ></input>
+                        <InputField forName="countrySearch" placeHolderName="ex:India" labelName="🔍 Search" />
                     </div>
                 </div>
                 <div className="bottomBar">
-                    <div className="navigation">Regions</div>
-                    <div className="aboutme">About me</div>
+                    <Navigation />
                 </div>
             </div>
             <div className="body">
                 <div className="banner">
-                    Contry of the day
+                    <Banner />
                 </div>
                 <div className="facts">
-                    <button>Random country | Random Fact</button>
+                    <NewCustomButton buttonName="Random Country Facts" />
                 </div>
             </div>
         </div>
