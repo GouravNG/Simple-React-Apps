@@ -3,12 +3,14 @@ export const HomePage = () => {
         <div className="countrywebApp">
             <div className="headingBar">
                 <div className="topBar">
-                    <div>Hamberger</div>
-                    <div className="heading">Site Name</div>
-                    <div className="theme">dark mode</div>
+                    <div className="heading"><h1>PROJECT | COUTRIES DATA</h1></div>
+                    <div className="theme">
+                        <label for='searchField'><span>🔍</span>Search</label>
+                        <input type="text" id="searchField" placeholder="ex: india" ></input>
+                    </div>
                 </div>
                 <div className="bottomBar">
-                    <div className="navigation">continents</div>
+                    <div className="navigation">Regions</div>
                     <div className="aboutme">About me</div>
                 </div>
             </div>
@@ -17,9 +19,7 @@ export const HomePage = () => {
                     Contry of the day
                 </div>
                 <div className="facts">
-                    <div className="countryDrop">Select Countries</div>
-                    <div className="factDrop">Select Fact</div>
-                    <div className="button">Genrate button</div>
+                    <button>Random country | Random Fact</button>
                 </div>
             </div>
         </div>
