@@ -7,7 +7,7 @@ import { displayContext } from "./context"
 
 export const Calculator = () => {
     const [input, setInput] = useState([])
-    const [output, setOutput] = useState("and to your questions")
+    const [output, setOutput] = useState("output")
     return (
         <>
             {/* <h1>Calculator</h1> */}
