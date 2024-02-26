@@ -8,20 +8,20 @@ let Opeartor
 let switcher = true
 
 const EachButton = ({ buttons }) => {
-    const { setInput, setOutput, input,output } = useContext(displayContext)
+    const { setInput, setOutput, input, output } = useContext(displayContext)
 
     return (
         buttons.map((button, index) => {
             if (button !== "=") {
-                return(
+                return (
                     index !== buttons.length - 1 ?
-                    <div key={button} className="buttons" onClick={() => { switcher ? in1.push(button) : in2.push(button); input.push(button); setInput([...input]); }}>{button}</div> :
-                    <div key={button} className="buttons" onClick={() => { switcher = false; input.push(button); setInput([...input]); Opeartor = button; }}>{button}</div>
+                        <div key={button} className="buttons" onClick={() => { switcher ? in1.push(button) : in2.push(button); input.push(button); setInput([...input]); }}>{button}</div> :
+                        <div key={button} className="buttons" onClick={() => { switcher = false; input.push(button); setInput([...input]); Opeartor = button; }}>{button}</div>
                 )
             }
-            else{
-                return(
-                    <div key={button} className="buttons" onClick={()=>{setOutput(calculate(in1.join(""),in2.join(""),Opeartor));}}>{button}</div>
+            else {
+                return (
+                    <div key={button} className="buttons" onClick={() => { setOutput(calculate(in1.join(""), in2.join(""), Opeartor)); }}>{button}</div>
                 )
             }
         }
