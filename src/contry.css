@@ -40,3 +40,38 @@
     justify-content: space-around;
     align-items: center;
 }
+.container{
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+}
+.upperBox{
+    background-color: cyan;
+    height: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.mapImg{
+    background-color: red;
+    height: 70%;
+}
+.geoBox{
+    height: 95%;
+    width: 55%;
+}
+.mapBox{
+    background-color: azure;
+    height: 95%;
+    width: 40%;
+}
+.geoBox{
+    background-color: antiquewhite;
+}
+.lowerBox{
+    background-color: violet;
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
