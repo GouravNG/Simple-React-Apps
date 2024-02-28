@@ -8,6 +8,16 @@ const countryDataFetcher = async () => {
     }
 }
 
+const countryDetailsFetcher = async () => {
+    try {
+        const tdata = await fetch("https://restcountries.com/v3.1/alpha/in")
+        const cData = await tdata.json()
+        return cData
+    } catch (error) {
+        console.log("SOMETHIN WENT WRONG")
+    }
+}
+
 export const RandomeNumberGenerator = () => {
     return Math.ceil(Math.random(100) * 100)
 }
@@ -30,4 +40,28 @@ export const giveMeCountriesName = async () => {
     console.log(countryArr.map((i) => {
         return (i[1].country)
     }))
+}
+export const giveMeCountryDetails = async () => {
+    try {
+        let cdata = await countryDetailsFetcher()
+        const newData = {
+            name: cdata[0].name.common,
+            currencies: cdata[0].currencies,
+            capital: cdata[0].capital[0],
+            languages: cdata[0].languages,
+            neighbours: cdata[0].borders,
+            landArea: cdata[0].area,
+            officialName: cdata[0].name.official,
+            population: cdata[0].population,
+            timezone: cdata[0].timezones[0],
+            continent: cdata[0].continents[0],
+            region: cdata[0].region,
+            flagLinks: cdata[0].flags.png,
+            flagalt: cdata[0].flags.alt
+        }
+        console.log(newData)
+    }
+    catch (e) {
+        console.log(e.message)
+    }
 }
