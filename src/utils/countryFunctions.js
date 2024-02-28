@@ -8,9 +8,9 @@ const countryDataFetcher = async () => {
     }
 }
 
-const countryDetailsFetcher = async () => {
+const countryDetailsFetcher = async (cc) => {
     try {
-        const tdata = await fetch("https://restcountries.com/v3.1/alpha/in")
+        const tdata = await fetch(`https://restcountries.com/v3.1/alpha/${cc}`)
         const cData = await tdata.json()
         return cData
     } catch (error) {
@@ -41,9 +41,9 @@ export const giveMeCountriesName = async () => {
         return (i[1].country)
     }))
 }
-export const giveMeCountryDetails = async () => {
+export const giveMeCountryDetails = async (cc) => {
     try {
-        let cdata = await countryDetailsFetcher()
+        let cdata = await countryDetailsFetcher(cc)
         const newData = {
             name: cdata[0].name.common,
             currencies: cdata[0].currencies,
@@ -59,7 +59,7 @@ export const giveMeCountryDetails = async () => {
             flagLinks: cdata[0].flags.png,
             flagalt: cdata[0].flags.alt
         }
-        console.log(newData)
+        return (newData)
     }
     catch (e) {
         console.log(e.message)
