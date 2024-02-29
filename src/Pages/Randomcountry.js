@@ -1,36 +1,32 @@
-export const RandomCountry = () => {
+import { useEffect, useState } from "react"
+import { DynamicPage } from "../components/dynamicPage"
+import { giveMeCountryDetails } from "../utils/countryFunctions"
+
+
+export const RandomCountry = ({ rand = "in" }) => {
+    const [loading, setLoading] = useState(true)
+    const [data, setData] = useState(null)
+    useEffect(() => {
+        try {
+            async function fetchData() {
+                setData(await giveMeCountryDetails(rand))
+                setLoading(false)
+            }
+            fetchData();
+        }
+        catch (e) {
+            console.log(e)
+            return (
+                <>z
+                    <h1>ERROR IN LOADING THE PAGE</h1>
+                </>
+            )
+        }
+
+    }, [])
     return (
         <div className="container">
-            <div className="upperBox">
-                <div className="mapBox">
-                    <div className="mapImg">
-                        Flag
-                    </div>
-                    <div className="mainText">
-                        <p>India</p>
-                        <p>Population</p>
-                    </div>
-                </div>
-                <div className="geoBox">GeoMap</div>
-            </div>
-            <div className="lowerBox">
-                <div className="left">
-                    <ul>
-                        <li>One</li>
-                        <li>two</li>
-                        <li>three</li>
-                        <li>Four</li>
-                    </ul>
-                </div>
-                <div className="right">
-                    <ul>
-                        <li>Five</li>
-                        <li>six</li>
-                        <li>seven</li>
-                        <li>eight</li>
-                    </ul>
-                </div>
-            </div>
+            {loading ? <h1>loading...</h1> : <DynamicPage data={data} />}
         </div>
     )
-}
+}   
