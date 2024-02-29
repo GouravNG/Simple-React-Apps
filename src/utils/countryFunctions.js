@@ -26,8 +26,7 @@ export const RandomeNumberGenerator = () => {
 export const randomCountry = async () => {
     const jData = await countryDataFetcher()
     const randomCountry = Object.entries(jData.data)[RandomeNumberGenerator()]
-    const [countryCode, countryData] = randomCountry
-    return countryCode
+    return randomCountry
 }
 
 export const giveMeCountriesCode = async () => {
