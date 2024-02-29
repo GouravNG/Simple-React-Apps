@@ -1,5 +1,5 @@
-const AboutMe = () => {
+export const AboutMe = () => {
     return (
-        <h1>hi from Gourv</h1>
+        <h1>Hi i am  Gourav</h1>
     )
 }
