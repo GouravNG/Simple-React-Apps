@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import erroImg from "./Errorimg.png";
+import { randomCountry } from "../utils/countryFunctions";
 
 const ErrorImg = () => {
     return (
@@ -13,30 +14,42 @@ const ErrorImg = () => {
     );
 };
 
-const FlagImg = ({ setImgErr }) => {
+const FlagImg = ({ setImgErr, cc }) => {
+    console.log(cc)
     return (
         <>
-            <p>Country of the Day: India</p>
+            <p>Country of the Day: {cc[1].country}</p>
             <img
-                src="https://flagcdn.com/w640/in.png"
+                src={`https://flagcdn.com/w640/${cc[0].toLowerCase()}.png`}
                 alt="Map of the country"
                 onError={() => setImgErr(true)}
                 width="400px"
             />
-            <p>Get to know more about India </p>
+            <p>Get to know more about {cc[1].country} </p>
         </>
     );
 };
 
 export const Banner = () => {
+    const [loading, setLoading] = useState(true)
     const [imgError, setImgErr] = useState(false);
+    const [country, setCountry] = useState(null)
+    useEffect(() => {
+        async function getRandomCountryName() {
+            setCountry(await randomCountry())
+            setLoading(false)
+        }
+        getRandomCountryName()
+    }, [])
     return (
         <div>
-            {imgError ? (
-                <ErrorImg />
-            ) : (
-                <FlagImg setImgErr={setImgErr} />
-            )}
+            {
+                loading ? <h1>Loading</h1> : imgError ? (
+                    <ErrorImg />
+                ) : (
+                    <FlagImg setImgErr={setImgErr} cc={country} />
+                )}
+
         </div>
     );
 };
