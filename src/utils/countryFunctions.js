@@ -1,8 +1,9 @@
+import testData from "./testData.json"
 const countryDataFetcher = async () => {
     try {
-        const tdata = await fetch("https://api.first.org/data/v1/countries")
-        const tdata2 = await tdata.json()
-        return tdata2
+        // const tdata = await fetch("https://api.first.org/data/v1/countries")
+        // const tdata2 = await tdata.json()
+        return testData //work around till cors issue fixed
     } catch (error) {
         console.log("Something went wrong")
     }
@@ -26,7 +27,7 @@ export const randomCountry = async () => {
     const jData = await countryDataFetcher()
     const randomCountry = Object.entries(jData.data)[RandomeNumberGenerator()]
     const [countryCode, countryData] = randomCountry
-    console.log(countryCode, "  ", countryData.country);
+    return countryCode
 }
 
 export const giveMeCountriesCode = async () => {
