@@ -1,6 +1,7 @@
 import { Heading, InputField, NewCustomButton } from "../components/commonComponents"
 import { Banner } from "../components/banner."
 import { Navigation } from "../components/navigation"
+import { Link } from "react-router-dom"
 export const HomePage = () => {
     return (
         <div className="countrywebApp">
@@ -19,10 +20,14 @@ export const HomePage = () => {
             </div>
             <div className="body">
                 <div className="banner">
-                    <Banner />
+                    <Link to="/aboutme">
+                        <Banner />
+                    </Link>
                 </div>
                 <div className="facts">
-                    <NewCustomButton buttonName="Random Country Facts" />
+                    <Link to="/random">
+                        <NewCustomButton buttonName="Random Country Facts" />
+                    </Link>
                 </div>
             </div>
         </div>
